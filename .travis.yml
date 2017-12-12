@@ -14,11 +14,15 @@ os:
   - osx
   - linux
 
-# Exclude linux for tip as go get fails there for some reason
+# Exclude cases where go get fails there for some reason
 matrix:
   exclude:
     - go: tip
       os: linux 
+    - go: 1.5.x
+      os: osx
+    - go: 1.6.x
+      os: osx
 
 before_install:
   - if [ $TRAVIS_OS_NAME == "linux" ]; then
